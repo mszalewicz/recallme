@@ -1,14 +1,17 @@
 package main
 
 import (
-	"os"
+	"recallme/handler"
 
 	"github.com/labstack/echo/v4"
 )
 
 func main() {
 	app := echo.New()
-	app.Start(":3000")
 
-	os.Exit(0)
+	bodyHandler := handler.BodyHandler{}
+
+	app.GET("/", bodyHandler.HandleBodyShow)
+
+	app.Logger.Fatal(app.Start(":3000"))
 }
