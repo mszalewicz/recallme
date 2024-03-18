@@ -9,6 +9,8 @@ import (
 func main() {
 	app := echo.New()
 
+	app.Static("/static", "assets")
+
 	bodyHandler := handler.BodyHandler{}
 
 	app.GET("/", bodyHandler.HandleBodyShow)
