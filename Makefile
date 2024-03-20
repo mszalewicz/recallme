@@ -13,7 +13,7 @@ dependencies:
 	@templ generate
 
 	@$(call PrintSection,"Generating Tailwind")
-	@tailwindcss -i ./assets/input.css -o ./assets/output.css
+	@tailwindcss -i ./static/input.css -o ./static/output.css
 
 
 

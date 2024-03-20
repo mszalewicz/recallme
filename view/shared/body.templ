@@ -15,12 +15,12 @@ templ Header() {
     <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
             <a href="main_page_todo" class="flex items-center">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/016/471/571/small/mountain-black-and-white-logo-design-nature-landscape-adventure-vector.jpg" class="mr-3 h-6 sm:h-9" alt="Recallme Logo" />
-                <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Recallme</span>
+                <img src="/static/images/brain.svg" class="mr-3 h-6 sm:h-9" alt="Recallme Logo" />
+                <span class="self-center text-xs md:text-xl lg:text-2xl font-semibold whitespace-nowrap dark:text-white">Recallme</span>
             </a>
             <div class="flex items-center lg:order-2">
-            <a href="#" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
-            <a href="#" class="text-white bg-primary-400 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Get started</a>
+            <a href="#" class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-xs px-2 lg:px-5 py-2 lg:py-2.5 mr-1 lg:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">Log in</a>
+            <a href="#" class="text-white bg-primary-400 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-xs px-2 lg:px-5 py-2 lg:py-2.5 mr-1 lg:mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">Get started</a>
                 <button  type="button" onclick='toggleVisibility("mobile-menu")' class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
                     <svg class="w-6 h-6" fill="gray" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
                     <svg class="hidden w-6 h-6" fill="gray" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -49,6 +49,9 @@ templ Header() {
 
 templ Content() {
     <body>
+        <div class="flex content-center h-auto m-auto p-4 sm:max-w-screen-sm sm:p-6 md:max-w-screen-md md:p-8 lg:max-w-screen-lg lg:p-12 drop-shadow-2xl">
+            <img class="h-auto max-w-full rounded-lg" src="/static/images/main_page_v2.png" alt="image description"/>
+        </div>
         <h1 class="text-center text-white">Main</h1>
     </body>
 }

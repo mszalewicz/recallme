@@ -9,10 +9,9 @@ import (
 func main() {
 	app := echo.New()
 
-	app.Static("/static", "assets")
+	app.Static("/static", "static")
 
 	bodyHandler := handler.BodyHandler{}
-
 	app.GET("/", bodyHandler.HandleBodyShow)
 
 	app.Logger.Fatal(app.Start(":3000"))
