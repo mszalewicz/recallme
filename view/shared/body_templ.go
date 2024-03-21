@@ -23,7 +23,7 @@ func Head() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link href=\"/static/output.css\" rel=\"stylesheet\"><script src=\"/static/main.js\"></script><title>Recallme</title></head>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><link rel=\"icon\" href=\"/static/images/brain.svg\" sizes=\"any\" type=\"image/svg+xml\"><link href=\"/static/output.css\" rel=\"stylesheet\"><script src=\"/static/main.js\"></script><title>Recallme</title></head>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -71,7 +71,7 @@ func Content() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body><div class=\"flex content-center h-auto m-auto p-4 sm:max-w-screen-sm sm:p-6 md:max-w-screen-md md:p-8 lg:max-w-screen-lg lg:p-12 drop-shadow-2xl\"><img class=\"h-auto max-w-full rounded-lg\" src=\"/static/images/main_page_v2.png\" alt=\"image description\"></div><h1 class=\"text-center text-white\">Main</h1></body>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body><div class=\"content-center h-auto m-auto p-2 sm:max-w-screen-sm md:max-w-screen-md md:p-4 lg:max-w-screen-lg lg:p-8 drop-shadow-2xl\"><img class=\"h-auto max-w-full rounded-lg\" src=\"/static/images/main_page_v3.png\" alt=\"image description\"></div><div class=\"h-auto m-auto p-2 sm:max-w-screen-sm md:max-w-screen-md md:p-4 lg:max-w-screen-lg lg:p-8 drop-shadow-2xl\"><h1 class=\"text-3xl text-primary-700 font-bold\">Gateway to faster memory</h1><p class=\"text-lg\"><br>Welcome to  <span class=\"text-primary-400 font-bold\">Recallme</span> card platform - your ultimate tool for mastering information retention.<br><br>Unlock the power of your memory with our interactive recall cards, designed to make learning effortless and enjoyable. Whether you're a student aiming for top grades, a professional seeking to stay sharp, or a lifelong learner hungry for knowledge, our platform is your gateway to success.<br><br>Engage in active recall like never before. Our cards present questions that challenge your memory, prompting you to flex those mental muscles before revealing the answers. It's a proven technique for enhancing retention and understanding.<br><br>But that's not all - unleash your creativity with customizable features, allowing you to craft your own sets of recall cards. It's your personal learning journey, shaped exactly how you want it.<br><br>Join the thousands of users already benefiting from our platform. Take the first step towards mastery - start mastering recall today.</p></div><div class=\"content-center h-auto m-auto p-2 sm:max-w-screen-sm md:max-w-screen-md md:p-4 lg:max-w-screen-lg lg:p-8 drop-shadow-2xl\"><iframe class=\"w-full aspect-video rounded-lg\" src=\"https://www.youtube.com/embed/MSq-KGj_cnY\" frameborder=\"0\" allow=\"encrypted-media;\" allowfullscreen></iframe></div></body>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
