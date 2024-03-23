@@ -19,7 +19,10 @@ vendor/
 go.work
 
 # Static non text
-/static/images
+static/
 
 # MacOS folder atributes file
 .DS_Store
+
+# Server settings
+.server_config.toml

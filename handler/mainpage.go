@@ -6,12 +6,12 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type BodyHandler struct{}
+type MainPageHandler struct{}
 
 // func (h *BodyHandler) HandleBodyShow(c echo.Context) error {
 // 	return render(c, mainpage.Show())
 // }
 
-func (h *BodyHandler) HandleBodyShow(c echo.Context) error {
+func (h *MainPageHandler) Show(c echo.Context) error {
 	return render(c, body.Page())
 }

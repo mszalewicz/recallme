@@ -15,18 +15,11 @@ dependencies:
 	@$(call PrintSection,"Generating Tailwind")
 	@tailwindcss -i ./static/input.css -o ./static/output.css --minify
 
-
-
-
-
 templ:
 	@templ generate -watch -proxy=http://localhost:3000
 
 tailwind:
 	@tailwindcss -i ./static/input.css -o ./static/output.css --minify --watch
-
-
-
 
 ##### Print section divider
 
