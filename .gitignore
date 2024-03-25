@@ -18,8 +18,12 @@ vendor/
 # Go workspace file
 go.work
 
-# Static non text
-static/
+# Static 
+static/images
+static/output.css
+
+# Build errors
+tmp/
 
 # MacOS folder atributes file
 .DS_Store
