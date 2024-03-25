@@ -5,6 +5,7 @@ go 1.22.0
 require (
 	github.com/a-h/templ v0.2.598
 	github.com/labstack/echo/v4 v4.11.4
+	github.com/pelletier/go-toml/v2 v2.2.0
 	github.com/tursodatabase/libsql-client-go v0.0.0-20240319161759-27d97b27f9e1
 )
 

@@ -6,20 +6,34 @@ import (
 	"log"
 	"os"
 	"recallme/handler"
+	server "recallme/model/server"
 
 	"github.com/labstack/echo/v4"
+	"github.com/pelletier/go-toml/v2"
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
 
 func main() {
+	// Read configuration file
 
-	// TODO: Read server configuration file
+	config := new(server.Config)
+	configFile, err := os.ReadFile("../.server_config.toml")
 
-	// TODO: Assign url from the consiguration file
-
-	db, err := sql.Open("libsql", url)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "failed to open db %s: %s", url, err)
+		log.Fatal(err)
+	}
+
+	err = toml.Unmarshal(configFile, config)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Connect database
+
+	db, err := sql.Open("libsql", config.Database.Url)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "failed to open db %s: %s", config.Database.Url, err)
 		os.Exit(1)
 	}
 	defer db.Close()
@@ -46,14 +60,20 @@ func main() {
 		fmt.Println(user)
 	}
 
-	mainpageHandler := handler.MainPageHandler{}
-	// loginHandler := handler.LoginPageHandler{}
+	os.Exit(1)
+
+	frontHandler := handler.FrontHandler{}
+	loginHandler := handler.LoginHandler{}
 
 	app := echo.New()
 
 	app.Static("/static", "static")
-	app.GET("/", mainpageHandler.Show)
-	// app.GET("/login", loginHandler.Show)
+	app.GET("/", frontHandler.Show)
+	app.GET("/login", loginHandler.Show)
 
-	app.Logger.Fatal(app.Start(":3000"))
+	// Production version
+	// app.Logger.Fatal(app.Start(":3000"))
+
+	// Development version
+	app.Logger.Fatal(app.Start("127.0.0.1:3000"))
 }
