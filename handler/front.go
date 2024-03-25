@@ -1,17 +1,17 @@
 package handler
 
 import (
-	body "recallme/view/shared"
+	front "recallme/view/front"
 
 	"github.com/labstack/echo/v4"
 )
 
-type MainPageHandler struct{}
+type FrontHandler struct{}
 
 // func (h *BodyHandler) HandleBodyShow(c echo.Context) error {
 // 	return render(c, mainpage.Show())
 // }
 
-func (h *MainPageHandler) Show(c echo.Context) error {
-	return render(c, body.Page())
+func (h *FrontHandler) Show(c echo.Context) error {
+	return render(c, front.Show())
 }
