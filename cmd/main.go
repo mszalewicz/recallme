@@ -9,6 +9,7 @@ import (
 	server "recallme/model/server"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"github.com/pelletier/go-toml/v2"
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
@@ -33,43 +34,42 @@ func main() {
 
 	db, err := sql.Open("libsql", config.Database.Url)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "failed to open db %s: %s", config.Database.Url, err)
-		os.Exit(1)
+		log.Fatal(fmt.Sprintf("failed to open db %s: %s", config.Database.Url, err))
 	}
 	defer db.Close()
 
-	query, err := db.Query("SELECT * FROM users LIMIT 2")
+	// Logger config - custom format log messages + specified output file
+
+	logFile, err := os.OpenFile("logfile", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
+		log.Fatal(fmt.Sprintf("failed to create/open file %s: %s", "logfile", err))
 	}
 
-	type Users struct {
-		id   int
-		name string
+	loggerConfig := middleware.LoggerConfig{
+		Format: `{"time":"${time_rfc3339_nano}","id":"${id}","remote_ip":"${remote_ip}",` +
+			`"host":"${host}","method":"${method}","uri":"${uri}","user_agent":"${user_agent}",` +
+			`"status":${status},"error":"${error}","latency":${latency},"latency_human":"${latency_human}"` +
+			`,"bytes_in":${bytes_in},"bytes_out":${bytes_out}}` + "\n",
+		CustomTimeFormat: "2006-01-02 15:04:05.00000",
+		Output:           logFile,
 	}
 
-	user := new(Users)
+	// Bootstrap server
 
-	for query.Next() {
-		err := query.Scan(&user.id, &user.name)
-		if err != nil {
-			log.Fatal(err)
-		}
+	app := echo.New()
+	app.Use(middleware.LoggerWithConfig(loggerConfig))
 
-		fmt.Println(user)
-	}
-
-	os.Exit(1)
+	// echo.NewHTTPError(http.Status, message ...interface{})
 
 	frontHandler := handler.FrontHandler{}
 	loginHandler := handler.LoginHandler{}
-
-	app := echo.New()
+	userHandler := handler.UsersHandler{}
 
 	app.Static("/static", "static")
+
 	app.GET("/", frontHandler.Show)
 	app.GET("/login", loginHandler.Show)
+	app.POST("signup", userHandler.SignUpForm)
 
 	// Production version
 	// app.Logger.Fatal(app.Start(":3000"))

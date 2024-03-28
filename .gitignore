@@ -18,7 +18,7 @@ vendor/
 # Go workspace file
 go.work
 
-# Static 
+# Static
 static/images
 static/output.css
 
@@ -30,3 +30,6 @@ tmp/
 
 # Server settings
 .server_config.toml
+
+# Logger output file
+logfile
