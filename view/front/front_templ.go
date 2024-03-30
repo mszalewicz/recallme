@@ -25,7 +25,7 @@ func Content() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<body><div class=\"content-center h-auto m-auto p-2 sm:max-w-screen-sm md:max-w-screen-md md:p-4 lg:max-w-screen-lg lg:p-8 drop-shadow-2xl\"><img class=\"h-auto max-w-full rounded-lg\" src=\"/static/images/main_page_v3.png\" alt=\"image description\"></div><div class=\"h-auto m-auto p-2 sm:max-w-screen-sm md:max-w-screen-md md:p-4 lg:max-w-screen-lg lg:p-8\"><hr class=\"h-px my-8 bg-gray-200 border-0 dark:bg-gray-700\"></div><div class=\"h-auto m-auto p-2 sm:msax-w-screen-sm md:max-w-screen-md md:p-4 lg:max-w-screen-lg lg:p-8 drop-shadow-2xl\"><h1 class=\"text-3xl text-primary-700 font-bold\">Gateway to faster memory</h1><p class=\"text-lg\"><br>Welcome to  <span class=\"text-primary-400 font-bold\">Recallme</span> card platform - your ultimate tool for mastering information retention.<br><br>Unlock the power of your memory with our interactive recall cards, designed to make learning effortless and enjoyable. Whether you're a student aiming for top grades, a professional seeking to stay sharp, or a lifelong learner hungry for knowledge, our platform is your gateway to success.<br><br>Engage in active recall like never before. Our cards present questions that challenge your memory, prompting you to flex those mental muscles before revealing the answers. It's a proven technique for enhancing retention and understanding.<br><br>But that's not all - unleash your creativity with customizable features, allowing you to craft your own sets of recall cards. It's your personal learning journey, shaped exactly how you want it.<br><br>Join the thousands of users already benefiting from our platform. Take the first step towards mastery - start mastering recall today.</p></div><div class=\"h-auto m-auto p-2 sm:max-w-screen-sm md:max-w-screen-md md:p-4 lg:max-w-screen-lg lg:p-8 drop-shadow-xl\"><div class=\"flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0\"><a href=\"#\" class=\"inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-400 hover:bg-primary-700 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900\">Get started <svg class=\"w-3.5 h-3.5 ms-2 rtl:rotate-180\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 14 10\"><path stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M1 5h12m0 0L9 1m4 4L9 9\"></path></svg></a> <a href=\"#\" class=\"text-center py-3 px-5 sm:ms-4 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-70\">Learn more</a></div></div><div class=\"h-auto m-auto p-2 sm:max-w-screen-sm md:max-w-screen-md md:p-4 lg:max-w-screen-lg lg:p-8\"><hr class=\"h-px my-8 bg-gray-200 border-0 dark:bg-gray-700\"></div><div class=\"content-center h-auto m-auto p-2 sm:max-w-screen-sm md:max-w-screen-md md:p-4 lg:max-w-screen-lg lg:p-8 drop-shadow-2xl\"><iframe class=\"w-full aspect-video rounded-lg\" src=\"https://www.youtube.com/embed/MSq-KGj_cnY\" frameborder=\"0\" allow=\"encrypted-media;\" allowfullscreen></iframe></div></body>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 1)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -49,7 +49,7 @@ func Show() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 2)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -65,7 +65,7 @@ func Show() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</html>")
+		templ_7745c5c3_Err = templ.WriteWatchModeString(templ_7745c5c3_Buffer, 3)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

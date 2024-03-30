@@ -15,6 +15,7 @@ import (
 )
 
 func main() {
+
 	// Read configuration file
 
 	config := new(server.Config)
@@ -56,24 +57,25 @@ func main() {
 
 	// Bootstrap server
 
-	app := echo.New()
-	app.Use(middleware.LoggerWithConfig(loggerConfig))
+	frontHandler := handler.FrontHandler{}
+	loginHandler := handler.LoginHandler{DB: db}
+	userHandler := handler.UserHandler{DB: db}
+
+	_ = userHandler
 
 	// echo.NewHTTPError(http.Status, message ...interface{})
 
-	frontHandler := handler.FrontHandler{}
-	loginHandler := handler.LoginHandler{}
-	userHandler := handler.UsersHandler{}
-
+	app := echo.New()
+	app.Use(middleware.LoggerWithConfig(loggerConfig))
 	app.Static("/static", "static")
-
 	app.GET("/", frontHandler.Show)
 	app.GET("/login", loginHandler.Show)
-	app.POST("signup", userHandler.SignUpForm)
+	app.POST("/signup", loginHandler.SignUp)
 
 	// Production version
 	// app.Logger.Fatal(app.Start(":3000"))
 
 	// Development version
 	app.Logger.Fatal(app.Start("127.0.0.1:3000"))
+
 }
