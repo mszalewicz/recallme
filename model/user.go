@@ -1,10 +1,10 @@
 package model
 
 import (
-	"crypto/sha256"
 	"database/sql"
-	"encoding/hex"
 	"fmt"
+
+	"golang.org/x/crypto/bcrypt"
 )
 
 type UserModel struct {
@@ -36,8 +36,12 @@ func (user *UserModel) EmailExists(email string) (bool, error) {
 
 func (user *UserModel) Add(username string, email string, password string) (bool, error) {
 
-	hashedPassword := sha256.Sum256([]byte(password))
-	hashedPasswordString := hex.EncodeToString(hashedPassword[:])
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.MinCost)
+	if err != nil {
+		return false, err
+	}
+
+	hashedPasswordString := string(hashedPassword[:])
 
 	sqlResult, err := user.DB.Exec(
 		`INSERT INTO users (
@@ -67,6 +71,6 @@ func (user *UserModel) Add(username string, email string, password string) (bool
 	}
 
 	fmt.Println("Number of inserted users: ", rowsAffected)
-	return true, nil // todo: right know placeholder, check if rowsAffected returns values, if not return false
+	return true, nil // todo: right now placeholder, check if rowsAffected returns values, if not return false
 
 }

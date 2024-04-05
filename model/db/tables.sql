@@ -5,7 +5,7 @@ CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username VARCHAR(18) UNIQUE NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
-    password CHAR(64) NOT NULL,
+    password CHAR(60) NOT NULL,
     created_at TIMESTAMP NULL,
     updated_at TIMESTAMP NULL
 );
