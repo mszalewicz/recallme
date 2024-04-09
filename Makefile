@@ -16,7 +16,8 @@ dependencies:
 	@tailwindcss -i ./static/input.css -o ./static/output.css --minify
 
 templ:
-	@templ generate -watch -proxy=http://localhost:3000
+	## @templ generate -watch -proxy=http://localhost:3000
+	@templ generate -watch
 
 tailwind:
 	@tailwindcss -i ./static/input.css -o ./static/output.css --minify --watch

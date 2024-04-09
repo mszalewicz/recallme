@@ -33,3 +33,6 @@ tmp/
 
 # Logger output file
 logfile
+
+# Components to reuse
+components_archive
