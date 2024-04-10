@@ -19,7 +19,7 @@ func main() {
 	// Read configuration file
 
 	config := new(server.Config)
-	configFile, err := os.ReadFile("../.server_config.toml")
+	configFile, err := os.ReadFile(".server_config.toml")
 
 	if err != nil {
 		log.Fatal(err)
