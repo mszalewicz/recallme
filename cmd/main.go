@@ -16,7 +16,7 @@ import (
 
 func main() {
 
-	// Read configuration file
+	// -------- read server config
 
 	config := new(server.Config)
 	configFile, err := os.ReadFile(".server_config.toml")
@@ -31,7 +31,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// Connect database
+	// -------- connect db
 
 	db, err := sql.Open("libsql", config.Database.Url)
 	if err != nil {
@@ -39,7 +39,7 @@ func main() {
 	}
 	defer db.Close()
 
-	// Logger config - custom format log messages + specified output file
+	// -------- logger
 
 	logFile, err := os.OpenFile("logfile", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
@@ -55,7 +55,13 @@ func main() {
 		Output:           logFile,
 	}
 
-	// Bootstrap server
+	// ---------
+
+	runServer(db, loggerConfig)
+
+}
+
+func runServer(db *sql.DB, loggerConfig middleware.LoggerConfig) {
 
 	frontHandler := handler.FrontHandler{}
 	loginHandler := handler.LoginHandler{DB: db}
