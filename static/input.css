@@ -3,12 +3,52 @@
 @tailwind utilities;
 
 .all_centered {
-    height: 70%;
-    margin: 0;
+    height: 100%;
     display: grid;
     place-items: center;
 }
 
-.login_form_width {
+.login_wrapper {
+    display: grid;
+    align-items: center;
+    justify-items: stretch;
+    box-shadow:
+        rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+        rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    background-color: #f7f9fa;
+    border-radius: 1em;
+    padding: 2em;
     width: 70%;
+    height: 60%;
+}
+
+@media screen and (min-width: 640px) {
+    .login_wrapper {
+        height: 60%;
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .login_wrapper {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .login_wrapper {
+        width: 45%;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .login_wrapper {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 1536px) {
+    .login_wrapper {
+        width: 25%;
+    }
 }
